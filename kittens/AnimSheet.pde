@@ -50,24 +50,34 @@ class AnimSheet
                                y+h/2.0};
     float rad = dist(cntr[0],cntr[1],x,y);
     
-    acos((w/2.0)/(rad));
+    float oldTheta = acos((w/2.0)/(rad));
+    
+    float newX = x+cos(oldTheta+theta)*rad;
+    float newY = y+sin(oldTheta+theta)*rad;
     beginShape();  
       texture(sheet);
       textureMode(IMAGE);
       //upper left corner
-      vertex(x,y,//cos(theta)*rad,sin(theta)*rad,
+      //println("animIndex: " + animIndex + " frameIndex: " + frameIndex + " anim.length: " + anim.length + " anim[animindex].length: " + anim[animIndex].length);
+      vertex(newX,newY,//cos(theta)*rad,sin(theta)*rad,
              anim[animIndex][frameIndex][0]*cellW,
              anim[animIndex][frameIndex][1]*cellH);
       //upper right corner
-      vertex(x+w,y,
+      newX = x+cos(PI-oldTheta+theta)*rad;
+      newY = y+sin(PI-oldTheta+theta)*rad;
+      vertex(newX,newY,
              (anim[animIndex][frameIndex][0]+1)*cellW,
              anim[animIndex][frameIndex][1]*cellH);
       //lower right corner
-      vertex(x+w,y+h,
+      newX = x+cos(PI+oldTheta+theta)*rad;
+      newY = y+sin(PI+oldTheta+theta)*rad;
+      vertex(newX,newY,
              (anim[animIndex][frameIndex][0]+1)*cellW, 
              (anim[animIndex][frameIndex][1]+1)*cellH);
       //lower left corner
-      vertex(x,y+h,
+      newX = x+cos(-oldTheta+theta)*rad;
+      newY = y+sin(-oldTheta+theta)*rad;
+      vertex(newX,newY,
              anim[animIndex][frameIndex][0]*cellW,
              (anim[animIndex][frameIndex][1]+1)*cellH);
     endShape();

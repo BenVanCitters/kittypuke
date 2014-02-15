@@ -44,6 +44,7 @@ class CharAnim
   public void setFrameByPercent(float pct)
   {
     currentFrameIndex =  (int)( (pct/100.0) *(curSheet.getAnimLength(currentAnimIndex)));
+    //println("currentAnimIndex: " + currentAnimIndex+  " pct: " + pct + " currentFrameIndex: " + currentFrameIndex + " curSheet.getAnimLength(currentAnimIndex): " + curSheet.getAnimLength(currentAnimIndex));//"curSheet.getAnimLength(): " + curSheet.getAnimLength(currentAnimIndex) +" currentAnimIndex: " + currentAnimIndex);  
   }  
   
   public void updateFrameIndex(long tm)
@@ -67,6 +68,8 @@ class CharAnim
   {      
     //printFrame(int animIndex, int frameIndex, int x, int y, float w, float h)
     //updateFrameIndex();
+    //println("currentAnimIndex: " + currentAnimIndex+ " currentFrameIndex: " +currentFrameIndex + 
+    //" x: " + x + " y: " +y + " wt: " + wt+ " ht: " + ht);
     curSheet.printFrame(currentAnimIndex, currentFrameIndex, x,y,wt,ht,theta);
   }
   

@@ -24,7 +24,7 @@ class flyOut
     rads = r;
     radTheta = rTheta;
     col= new char[]{(char)(random(255)),(char)(random(255)),(char)(random(255))};//255,0,0};//
-    removeMe = false;
+    isOffScreen = false;
   }
 
   public void update()
@@ -38,19 +38,17 @@ class flyOut
     vel[1] += .8;
     pos[0] += vel[0];
     pos[1] += vel[1];
-    sz *= .98;
+    //sz *= .98;
     
     if(sz < 1 || 
        pos[0] < 0 || pos[0] > width ||
        pos[1] < 0 || pos[1] > height)
-         removeMe = true;
-    
+         isOffScreen = true;    
   }
   
   public void draw()
   {
-    
-    if(removeMe)
+    if(isOffScreen)
       return;
     stroke(100);//col[0],col[1],col[2]);
     strokeWeight(3);
@@ -67,14 +65,14 @@ class flyOut
   
   public boolean isRemoveable()
   {
-    return removeMe;
+    return isOffScreen;
   }
   
   private float radTheta;
-  private float rads;
+  protected float rads;
   protected float[] pos;
-  private float[] vel;
-  private float sz;
+  protected float[] vel;
+  protected float sz;
   private char[] col;
-  private boolean removeMe;
+  protected boolean isOffScreen;
 }

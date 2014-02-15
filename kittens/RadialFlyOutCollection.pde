@@ -1,36 +1,36 @@
 class RadialFlyOutCollection
 {
-  public RadialFlyOutCollection()
+  public RadialFlyOutCollection(boolean emitter, int[] animIndecies, float[] position)
   {
     flyOuts = new ArrayList<flyOut>();
+    pEmitting = emitter;
+    this.animIndecies = animIndecies;
+    pos = position;
   }
   
   //num = number of flyouts to spawn,  scale - loudness of sound, in this case
-  public void addFlyOut(int num, float scale)
+  public void addFlyOut(int num, float sz, float[] vel)
   {
-    int maxSz = 40;
     int maxSpd = 40;
-    float center[] = new float[]{width/2.0,
-                              (height*2.8/10.0)};
+    //float center[] = ;
     float vertRad = 5;
     float horzRad = 40;
     float posTheta = random(TWO_PI);
     
-//    float pos[] = new float[]{center[0] + cos(posTheta)*horzRad,
-//                              center[1] + sin(posTheta)*vertRad};
     for(int i = 0; i < num; i++)
     {
       float rndSpdMult = random(maxSpd);
       float rad = random(TWO_PI);
-      float pos[] = new float[]{center[0] + cos(posTheta)*horzRad,
-                              center[1] + sin(posTheta)*vertRad};
-      float vel[] = new float[]{.6*rndSpdMult*cos(rad)*scale,
-                                .45*rndSpdMult*sin(rad)*scale};
-      flyOuts.add(new PukingFlyOut(1,maxSz*scale, 
-                             pos,
-                             vel, 
+      float posi[] = new float[]{pos[0] + cos(posTheta)*horzRad,
+                              pos[1] + sin(posTheta)*vertRad};
+      float velo[] = new float[]{vel[0]+.6*rndSpdMult*cos(rad),
+                                vel[1]+.45*rndSpdMult*sin(rad)};
+      int indx= (int)(random(animIndecies.length));
+      flyOuts.add(new PukingFlyOut(animIndecies[indx], pEmitting, sz, 
+                             posi,
+                             velo, 
                              random(TWO_PI), 
-                             random(.5)));
+                             random(.25)-.125));
     }
   }
   
@@ -38,7 +38,7 @@ class RadialFlyOutCollection
   {
     for(flyOut f : flyOuts)
     {
-      f.move();
+      f.update();
     }
 
     Iterator it = flyOuts.iterator();
@@ -50,6 +50,11 @@ class RadialFlyOutCollection
     }
   }
   
+  
+  public void setPos(float[] position)
+  {
+    pos = position;
+  }
   public void draw()
   {
     for(flyOut f : flyOuts)
@@ -63,7 +68,9 @@ class RadialFlyOutCollection
     return flyOuts.size();
   }
   ArrayList<flyOut> flyOuts;
-  float center[];
+  float[] pos;
   float verticalRad;
   float horzRad;
+  boolean pEmitting;
+  int[] animIndecies;
 }

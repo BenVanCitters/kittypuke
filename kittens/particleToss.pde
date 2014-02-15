@@ -7,31 +7,19 @@ class ParticleToss
   
   RadialFlyOutCollection fOC;
   
- public ParticleToss()
+ public ParticleToss(boolean isEmitter, int[] animIndecies)
   {
-    //minim = new Minim(this);
-    // get a stereo line-in: sample buffer length of 2048
-    // default sample rate is 44100, default bit depth is 16
-    //in = minim.getLineIn(Minim.MONO, 512); 
-    fOC = new RadialFlyOutCollection();
-    
+    fOC = new RadialFlyOutCollection(isEmitter,animIndecies,new float[]{width/2.0,
+                                                            (height*4.0/10.0)});
   }
   
   public void draw(float curMax,float runningMaxAmp)
   {
-
-    
-    //if(diff > 0)
-    {
-      //spawn flyout    
-    //  int expCount = (int)(random(10));
-      //for(int i = 0; i < expCount; i++)
-      {
-  //      int particleCount = (int)(100.0/expCount);
-        fOC.addFlyOut((int)(curMax*10/runningMaxAmp),curMax/runningMaxAmp);
-      }
-    }
-    
+    //for(int i = 0; i < expCount; i++)
+//    int particleCount = (int)(100.0/expCount);
+    fOC.addFlyOut((int)(curMax*3/runningMaxAmp), //number
+                        170, //sz
+                        new float[]{0.0,0.0}); //velocity   
     fOC.update();
     fOC.draw();          
   }
