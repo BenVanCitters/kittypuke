@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import processing.opengl.*;
 import ddf.minim.*;
 
@@ -13,8 +14,8 @@ ParticleToss partToss;
 
 void setup()
 {
-  size(screen.width, screen.height, OPENGL);
-  //size(500,500,OPENGL);
+  size(displayWidth,displayHeight,OPENGL);
+//size(500,500,OPENGL);
   //size(500,500,P2D);//,OPENGL);
   noSmooth();
  
