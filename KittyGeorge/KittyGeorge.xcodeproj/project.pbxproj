@@ -224,6 +224,8 @@
 		2DA6D3A718B15D0000308829 /* newton-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6D3A618B15D0000308829 /* newton-ipad.png */; };
 		2DA6D3A918B15D0000308829 /* newton.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6D3A818B15D0000308829 /* newton.plist */; };
 		2DA6D3AB18B15D0000308829 /* newton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6D3AA18B15D0000308829 /* newton.png */; };
+		2DA6D3B618B17F3900308829 /* gwBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6D3B418B17F3900308829 /* gwBody.png */; };
+		2DA6D3B718B17F3900308829 /* gwHead.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6D3B518B17F3900308829 /* gwHead.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -682,6 +684,8 @@
 		2DA6D3A618B15D0000308829 /* newton-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "newton-ipad.png"; path = "Resources/newton-ipad.png"; sourceTree = "<group>"; };
 		2DA6D3A818B15D0000308829 /* newton.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = newton.plist; path = Resources/newton.plist; sourceTree = "<group>"; };
 		2DA6D3AA18B15D0000308829 /* newton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newton.png; path = Resources/newton.png; sourceTree = "<group>"; };
+		2DA6D3B418B17F3900308829 /* gwBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gwBody.png; path = Resources/gwBody.png; sourceTree = "<group>"; };
+		2DA6D3B518B17F3900308829 /* gwHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gwHead.png; path = Resources/gwHead.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -757,6 +761,8 @@
 				2DA6D0FA18B15CFD00308829 /* Default@2x.png */,
 				2DA6D0FC18B15CFD00308829 /* Default-568h@2x.png */,
 				2DA6D0FE18B15CFD00308829 /* Default-Landscape~ipad.png */,
+				2DA6D3B418B17F3900308829 /* gwBody.png */,
+				2DA6D3B518B17F3900308829 /* gwHead.png */,
 				2DA6D11B18B15CFD00308829 /* Info.plist */,
 				2DA6D11C18B15CFD00308829 /* iTunesArtwork */,
 				2DA6D11E18B15CFD00308829 /* iTunesArtwork@2x */,
@@ -1671,6 +1677,7 @@
 				2DA6D3A118B15D0000308829 /* newton-ipadhd.plist in Resources */,
 				2DA6D10418B15CFD00308829 /* Icon@2x.png in Resources */,
 				2DA6D11618B15CFD00308829 /* Icon-Small@2x.png in Resources */,
+				2DA6D3B718B17F3900308829 /* gwHead.png in Resources */,
 				2DA6D3A918B15D0000308829 /* newton.plist in Resources */,
 				2DA6D10818B15CFD00308829 /* Icon-72@2x.png in Resources */,
 				2DA6D0F918B15CFD00308829 /* Default.png in Resources */,
@@ -1680,6 +1687,7 @@
 				2DA6D11418B15CFD00308829 /* Icon-Small.png in Resources */,
 				2DA6D11218B15CFD00308829 /* Icon-Small-50.png in Resources */,
 				2DA6D39D18B15D0000308829 /* fire.plist in Resources */,
+				2DA6D3B618B17F3900308829 /* gwBody.png in Resources */,
 				2DA6D39F18B15D0000308829 /* fire.png in Resources */,
 				2DA6D3A718B15D0000308829 /* newton-ipad.png in Resources */,
 				2DA6D2FB18B15D0000308829 /* LICENSE_Kazmath.txt in Resources */,

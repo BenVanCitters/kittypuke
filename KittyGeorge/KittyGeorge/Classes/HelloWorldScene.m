@@ -18,6 +18,7 @@
 @implementation HelloWorldScene
 {
     CCSprite *_sprite;
+    CCSprite *_sprite2;
 }
 
 // -----------------------------------------------------------------------
@@ -31,11 +32,57 @@
 
 // -----------------------------------------------------------------------
 
+-(void)initAudio
+{
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [audioSession setActive:YES error:nil];
+    
+    [audioSession requestRecordPermission:^(BOOL granted) {
+        if(granted)
+        {
+            
+            NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
+            
+            NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      [NSNumber numberWithFloat: 44100.0],                 AVSampleRateKey,
+                                      [NSNumber numberWithInt: kAudioFormatAppleLossless], AVFormatIDKey,
+                                      [NSNumber numberWithInt: 1],                         AVNumberOfChannelsKey,
+                                      [NSNumber numberWithInt: AVAudioQualityMax],         AVEncoderAudioQualityKey,
+                                      nil];
+            
+            NSError *error;
+            
+            recorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&error];
+            
+            if (recorder) {
+                [recorder prepareToRecord];
+                recorder.meteringEnabled = YES;
+                [recorder record];
+                levelTimer = [NSTimer scheduledTimerWithTimeInterval: 1/200.f target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
+            } else
+                NSLog([error description]);
+        }
+    }];
+
+
+}
+- (void)levelTimerCallback:(NSTimer *)timer {
+	[recorder updateMeters];
+    float rotationAmount = 1-[recorder peakPowerForChannel:0]/-160.f;
+    rotationAmount *= rotationAmount*rotationAmount;
+    rotationAmount *= rotationAmount*rotationAmount;
+    rotationAmount *= 60.f;
+    [_sprite2 setRotation:rotationAmount];
+	NSLog(@"Average input: %f Peak input: %f", [recorder averagePowerForChannel:0], [recorder peakPowerForChannel:0]);
+}
 - (id)init
 {
     // Apple recommend assigning self with supers return value
     self = [super init];
     if (!self) return(nil);
+    
+    [self initAudio];
     
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
@@ -45,13 +92,25 @@
     [self addChild:background];
     
     // Add a sprite
-    _sprite = [CCSprite spriteWithImageNamed:@"Icon-72.png"];
+    _sprite = [CCSprite spriteWithImageNamed:@"gwBody.png"];
     _sprite.position  = ccp(self.contentSize.width/2,self.contentSize.height/2);
     [self addChild:_sprite];
     
+    _sprite2 = [CCSprite spriteWithImageNamed:@"gwHead.png"];
+    _sprite2.position  = ccp(604.f,
+                             453.f);
+    [self addChild:_sprite2];
+
+    
     // Animate sprite with action
-    CCActionRotateBy* actionSpin = [CCActionRotateBy actionWithDuration:1.5f angle:360];
-    [_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
+    CCActionRotateBy* actionSpin = [CCActionRotateBy actionWithDuration:1.5f angle:60];
+    //[_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
+    
+    CCActionRotateBy* actionSpin2 = [CCActionRotateBy actionWithDuration:1.5f angle:60];
+    [_sprite2 setAnchorPoint:CGPointMake(554.f/_sprite2.boundingBox.size.width,
+                                         623.f/_sprite2.boundingBox.size.height)];
+//    [_sprite2 runAction:[CCActionRepeatForever actionWithAction:actionSpin2]];
+    [_sprite2 runAction:actionSpin2];
     
     // Create a back button
     CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
@@ -102,11 +161,21 @@
     CGPoint touchLoc = [touch locationInNode:self];
     
     // Log touch location
-    CCLOG(@"Move sprite to @ %@",NSStringFromCGPoint(touchLoc));
+//    CCLOG(@"Move sprite to @ %@",NSStringFromCGPoint(touchLoc));
     
     // Move our sprite to touch location
-    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:1.0f position:touchLoc];
-    [_sprite runAction:actionMove];
+//    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:1.0f position:touchLoc];
+//    [_sprite runAction:actionMove];
+
+}
+
+
+-(void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
+    CGPoint touchLoc = [touch locationInNode:self];
+//    CCActionRotateBy* actionSpin2 = [CCActionRotateBy actionWithDuration:0.01f angle:touchLoc.y];
+//    //    [_sprite2 runAction:[CCActionRepeatForever actionWithAction:actionSpin2]];
+//    [_sprite2 runAction:actionSpin2];
+    [_sprite2 setRotation:touchLoc.y];
 }
 
 // -----------------------------------------------------------------------

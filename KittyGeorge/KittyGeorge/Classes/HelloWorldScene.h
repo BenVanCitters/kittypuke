@@ -17,7 +17,10 @@
  *  The main scene
  */
 @interface HelloWorldScene : CCScene
-
+{
+    AVAudioRecorder* recorder;
+    NSTimer* levelTimer;
+}
 // -----------------------------------------------------------------------
 
 + (HelloWorldScene *)scene;
