@@ -10,6 +10,7 @@
 #import "HelloWorldScene.h"
 #import "IntroScene.h"
 #import "NewtonScene.h"
+#import "CCTextureCache.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - HelloWorldScene
@@ -74,8 +75,9 @@
     rotationAmount *= rotationAmount*rotationAmount;
     rotationAmount *= 60.f;
     [_sprite2 setRotation:rotationAmount];
-	NSLog(@"Average input: %f Peak input: %f", [recorder averagePowerForChannel:0], [recorder peakPowerForChannel:0]);
+//	NSLog(@"Average input: %f Peak input: %f", [recorder averagePowerForChannel:0], [recorder peakPowerForChannel:0]);
 }
+
 - (id)init
 {
     // Apple recommend assigning self with supers return value
@@ -97,27 +99,24 @@
     [self addChild:_sprite];
     
     _sprite2 = [CCSprite spriteWithImageNamed:@"gwHead.png"];
+    [_sprite2 setAnchorPoint:CGPointMake(554.f/_sprite2.boundingBox.size.width,
+                                         623.f/_sprite2.boundingBox.size.height)];
     _sprite2.position  = ccp(604.f,
                              453.f);
     [self addChild:_sprite2];
 
+    CCParticleExplosion* partExp = [[CCParticleExplosion alloc] initWithTotalParticles:2000];
+    CCTexture* mykittentex = [[CCTextureCache sharedTextureCache] addImage:@"kitHead.png"];
     
-    // Animate sprite with action
-    CCActionRotateBy* actionSpin = [CCActionRotateBy actionWithDuration:1.5f angle:60];
-    //[_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
+    [partExp setTexture:mykittentex withRect:CGRectMake(0, 0, 10, 10)];
+    [self addChild:partExp];
     
-    CCActionRotateBy* actionSpin2 = [CCActionRotateBy actionWithDuration:1.5f angle:60];
-    [_sprite2 setAnchorPoint:CGPointMake(554.f/_sprite2.boundingBox.size.width,
-                                         623.f/_sprite2.boundingBox.size.height)];
-//    [_sprite2 runAction:[CCActionRepeatForever actionWithAction:actionSpin2]];
-    [_sprite2 runAction:actionSpin2];
-    
-    // Create a back button
-    CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(0.85f, 0.95f); // Top Right of screen
-    [backButton setTarget:self selector:@selector(onBackClicked:)];
-    [self addChild:backButton];
+//    // Create a back button
+//    CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
+//    backButton.positionType = CCPositionTypeNormalized;
+//    backButton.position = ccp(0.85f, 0.95f); // Top Right of screen
+//    [backButton setTarget:self selector:@selector(onBackClicked:)];
+//    [self addChild:backButton];
 
     // done
 	return self;

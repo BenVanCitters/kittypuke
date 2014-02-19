@@ -226,6 +226,11 @@
 		2DA6D3AB18B15D0000308829 /* newton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6D3AA18B15D0000308829 /* newton.png */; };
 		2DA6D3B618B17F3900308829 /* gwBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6D3B418B17F3900308829 /* gwBody.png */; };
 		2DA6D3B718B17F3900308829 /* gwHead.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6D3B518B17F3900308829 /* gwHead.png */; };
+		2DCED6B818B4A19B00A0546E /* cigar2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DCED6B318B4A19B00A0546E /* cigar2.png */; };
+		2DCED6B918B4A19B00A0546E /* kitHead.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DCED6B418B4A19B00A0546E /* kitHead.png */; };
+		2DCED6BA18B4A19B00A0546E /* kitHead1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DCED6B518B4A19B00A0546E /* kitHead1.png */; };
+		2DCED6BB18B4A19B00A0546E /* kitHead2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DCED6B618B4A19B00A0546E /* kitHead2.png */; };
+		2DCED6BC18B4A19B00A0546E /* stasch1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DCED6B718B4A19B00A0546E /* stasch1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -686,6 +691,11 @@
 		2DA6D3AA18B15D0000308829 /* newton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newton.png; path = Resources/newton.png; sourceTree = "<group>"; };
 		2DA6D3B418B17F3900308829 /* gwBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gwBody.png; path = Resources/gwBody.png; sourceTree = "<group>"; };
 		2DA6D3B518B17F3900308829 /* gwHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gwHead.png; path = Resources/gwHead.png; sourceTree = "<group>"; };
+		2DCED6B318B4A19B00A0546E /* cigar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cigar2.png; path = Resources/cigar2.png; sourceTree = "<group>"; };
+		2DCED6B418B4A19B00A0546E /* kitHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kitHead.png; path = Resources/kitHead.png; sourceTree = "<group>"; };
+		2DCED6B518B4A19B00A0546E /* kitHead1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kitHead1.png; path = Resources/kitHead1.png; sourceTree = "<group>"; };
+		2DCED6B618B4A19B00A0546E /* kitHead2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kitHead2.png; path = Resources/kitHead2.png; sourceTree = "<group>"; };
+		2DCED6B718B4A19B00A0546E /* stasch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stasch1.png; path = Resources/stasch1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -757,6 +767,11 @@
 		2DA6D0F718B15CFD00308829 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2DCED6B318B4A19B00A0546E /* cigar2.png */,
+				2DCED6B418B4A19B00A0546E /* kitHead.png */,
+				2DCED6B518B4A19B00A0546E /* kitHead1.png */,
+				2DCED6B618B4A19B00A0546E /* kitHead2.png */,
+				2DCED6B718B4A19B00A0546E /* stasch1.png */,
 				2DA6D0F818B15CFD00308829 /* Default.png */,
 				2DA6D0FA18B15CFD00308829 /* Default@2x.png */,
 				2DA6D0FC18B15CFD00308829 /* Default-568h@2x.png */,
@@ -1690,16 +1705,21 @@
 				2DA6D3B618B17F3900308829 /* gwBody.png in Resources */,
 				2DA6D39F18B15D0000308829 /* fire.png in Resources */,
 				2DA6D3A718B15D0000308829 /* newton-ipad.png in Resources */,
+				2DCED6B918B4A19B00A0546E /* kitHead.png in Resources */,
 				2DA6D2FB18B15D0000308829 /* LICENSE_Kazmath.txt in Resources */,
 				2DA6D10618B15CFD00308829 /* Icon-72.png in Resources */,
+				2DCED6BA18B4A19B00A0546E /* kitHead1.png in Resources */,
 				2DA6D25418B15CFF00308829 /* LICENSE_cocos2d.txt in Resources */,
+				2DCED6B818B4A19B00A0546E /* cigar2.png in Resources */,
 				2DA6D3A318B15D0000308829 /* newton-ipadhd.png in Resources */,
 				2DA6D0FD18B15CFD00308829 /* Default-568h@2x.png in Resources */,
 				2DA6D11D18B15CFD00308829 /* iTunesArtwork in Resources */,
 				2DA6D3AB18B15D0000308829 /* newton.png in Resources */,
 				2DA6D11818B15CFD00308829 /* Icon-Spotlight-iOS7.png in Resources */,
 				2DA6D10C18B15CFD00308829 /* Icon-76@2x.png in Resources */,
+				2DCED6BC18B4A19B00A0546E /* stasch1.png in Resources */,
 				2DA6D38018B15D0000308829 /* LICENSE_Chipmunk.txt in Resources */,
+				2DCED6BB18B4A19B00A0546E /* kitHead2.png in Resources */,
 				2DA6D11A18B15CFD00308829 /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				2DA6D10A18B15CFD00308829 /* Icon-76.png in Resources */,
 				2DA6D2E018B15CFF00308829 /* ChangeLog in Resources */,
@@ -2053,6 +2073,7 @@
 				2DA6D3B018B15D0000308829 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2DA6D3B118B15D0000308829 /* Build configuration list for PBXNativeTarget "KittyGeorge" */ = {
 			isa = XCConfigurationList;
@@ -2061,6 +2082,7 @@
 				2DA6D3B318B15D0000308829 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
